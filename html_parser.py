@@ -1,7 +1,7 @@
-from html.parser import HTMLParser
+import HTMLParser
 
 
-class MyHTMLParser(HTMLParser):
+class MyHTMLParser(HTMLParser.HTMLParser):
 
     def __init__(self):
         HTMLParser.HTMLParser.__init__(self)
@@ -42,7 +42,7 @@ class MyHTMLParser(HTMLParser):
             self.inDiscountSection = False
         elif tag == 'span' and self.inDiscountSpan:
             self.inDiscountSpan = False
-        elif tag == 'a' and self.inProductItem:
+        elif tag == 'a' and self.inProductItemSection:
             self.inProductItemSection = False
 
     def handle_data(self, data):
